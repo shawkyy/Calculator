@@ -20,19 +20,44 @@ class ViewController: UIViewController {
     var performMath = false
     var operation = 0
     
+    
+    
+    
     @IBOutlet weak var displayLabel: UILabel!
     
 
     // MARk: numbers buttons
+    
+    @IBAction func dotButtonPressed(_ sender: UIButton) {
+        
+        if performMath == true {
+            
+            displayLabel.text = "."
+            
+            secondNumberEntered = Double(displayLabel.text!)!
+            
+            performMath = false
+        }
+            
+        else {
+            
+            
+            displayLabel.text?.append(".")
+            
+            secondNumberEntered = Double(displayLabel.text!)!
+            
+        }
+        
+    }
+    
     
     
     @IBAction func numberTapped(_ sender: UIButton) {
 
          sender.showsTouchWhenHighlighted = true
         
+        
         if performMath == true {
-
-
 
             displayLabel.text = String(sender.tag)
 
@@ -157,8 +182,6 @@ class ViewController: UIViewController {
 
 }
     
-    
-    
-    
+
 
 }
